@@ -1,0 +1,7 @@
+<Dorms>
+ <Dorm ID="0" Name="Dorm Building 0">
+  <Room ID="0" Name="Room 0"/>
+  <Room ID="1" Name="Room 1"/>
+  <Room ID="2" Name="Room 2"/>
+ </Dorm>
+</Dorms>
