@@ -7,7 +7,7 @@
  */
 
 #include <QtCore>
-#include <QtXML>
+#include <QtXml>
 #include <QDebug>
 
 void retrievElements(QDomElement root, QString tag, QString att)
@@ -15,10 +15,10 @@ void retrievElements(QDomElement root, QString tag, QString att)
     QDomNodeList nodes = root.elementsByTagName(tag);
 
     qDebug() << "# nodes = " << nodes.count();
-    for(int i = 0; i < nodes.count(); i++)
+    for (int i = 0; i < nodes.count(); i++)
     {
         QDomNode elm = nodes.at(i);
-        if(elm.isElement())
+        if (elm.isElement())
         {
             QDomElement e = elm.toElement();
             qDebug() << e.attribute(att);
