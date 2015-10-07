@@ -1,0 +1,21 @@
+Jasmine Blanchette en Mark Summerfield: 'GUI Programming with Qt 4 2nd.Edition'
+is gebasseerd op Qt4, maar nog altijd een aanrader.  Qt5 heeft wel een aantal
+veranderingen, maar die code zou ook moeten werken.  Desnoods de porting guide
+erbij nemen.
+
+Dit boek legt uit hoe je je GUI ontwerpt met code alleen of via designer. Mijn
+voorkeur is designer, maar soms moet je wel bepaalde dingen in code doen omdat
+designer net niet die bepaalde optie heeft.  QT Quick is een nieuwe technology
+om blitse UI te maken met mooie effecten.
+
+Best gebruik je Qt Creator (dit is een IDE die gebruik maakt van Qt designer).
+Daar hoort een manual bij en dat is ook een aanrader.
+
+Vragen proberen op te lossen op de forums of gewoon meekijken hoe iemand anders
+het doet helpt ook.
+
+Maar de beste manier blijft nog altijd : zelf iets kleins bedenken, die je dan
+met vallen en opstaan tot een goed einde brengt.
+
+Op Youtube zijn er goede tutorials voor beginners van Rootshell. Deze zijn
+gescreend door de pro's.
