@@ -9,10 +9,13 @@
  *
  *   Advantage 3: you may find that qobject_cast works 5 to 10 times
  *                faster than dynamic_cast, depending on what compiler you use. 
- * 
+ *
  * TODO:
- *   Modify this code so that the above three advantages of qobject_cast are
- *   illustrated.
+ *   - Can we use only one do_cast_stuff(QObject*) function and pass
+ *     qobject_cast and dynamic_cast as function parameters to this function?
+ *
+ *   - Can we avoid the extra qDebug() statements that are used to force the
+ *     compiler not to optimize away code?
  *
  * References:
  *
@@ -24,22 +27,64 @@
 #include "mywidget.h"
 
 #include <QApplication>
+#include <QDebug>
+#include <QElapsedTimer>
 #include <QLabel>
 #include <QObject>
 #include <QWidget>
 
-void do_qobject_cast_stuff(QObject* obj)
+const int NB_ITERATIONS = 1000000;
+
+qint64 do_qobject_cast_stuff(QObject* obj)
 {
-    QWidget* widget = qobject_cast<QWidget*>(obj);
-    MyWidget* myWidget = qobject_cast<MyWidget*>(obj);
-    QLabel* label = qobject_cast<QLabel*>(obj);
+    QWidget* widget;
+    MyWidget* myWidget;
+    QLabel* label;
+
+    QElapsedTimer timer;
+    timer.start();
+    for (int i = 0; i < NB_ITERATIONS; ++i)
+    {
+        widget = qobject_cast<QWidget*>(obj);
+        myWidget = qobject_cast<MyWidget*>(obj);
+        label = qobject_cast<QLabel*>(obj);
+    }
+    qint64 theTimeInMs = timer.elapsed();
+    qDebug() << "qobject_cast code took " << theTimeInMs << " milliseconds.";
+
+    // To avoid warnings about unused variables and to make sure the
+    // compiler doesn't remove code while optimizing.
+    qDebug() << widget; 
+    qDebug() << myWidget;
+    qDebug() << label;
+
+    return theTimeInMs;
 }
 
-void do_dynamic_cast_stuff(QObject* obj)
+qint64 do_dynamic_cast_stuff(QObject* obj)
 {
-    QWidget* widget = dynamic_cast<QWidget*>(obj);
-    MyWidget* myWidget = dynamic_cast<MyWidget*>(obj);
-    QLabel* label = dynamic_cast<QLabel*>(obj);
+    QWidget* widget;
+    MyWidget* myWidget;
+    QLabel* label;
+
+    QElapsedTimer timer;
+    timer.start();
+    for (int i = 0; i < NB_ITERATIONS; ++i)
+    {
+        widget = dynamic_cast<QWidget*>(obj);
+        myWidget = dynamic_cast<MyWidget*>(obj);
+        label = dynamic_cast<QLabel*>(obj);
+    }
+    qint64 theTimeInMs = timer.elapsed();
+    qDebug() << "dynamic_cast code took " << theTimeInMs << " milliseconds.";
+
+    // To avoid warnings about unused variables and to make sure the
+    // compiler doesn't remove code while optimizing.
+    qDebug() << widget; 
+    qDebug() << myWidget;
+    qDebug() << label;
+
+    return theTimeInMs;
 }
 
 int main(int argc, char* argv[])
@@ -48,8 +93,10 @@ int main(int argc, char* argv[])
 
     QObject* obj = new MyWidget;
 
-    do_qobject_cast_stuff(obj);
-    do_dynamic_cast_stuff(obj);
+    qint64 object_cast_time = do_qobject_cast_stuff(obj);
+    qint64 dynamic_cast_time = do_dynamic_cast_stuff(obj);
+
+    qDebug() << "dynamic_cast was " << static_cast<float>(dynamic_cast_time)/object_cast_time << " times slower.";
 
     return 0;
 }
