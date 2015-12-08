@@ -16,9 +16,12 @@ int main(int argc, char* argv[])
     //QHBoxLayout* hlayout = new QHBoxLayout;
     QVBoxLayout* vlayout = new QVBoxLayout;
 
+    vlayout->addStretch(1);
     vlayout->addWidget(button1);
+    vlayout->addStretch(4);
     vlayout->addWidget(button2);
     vlayout->addWidget(button3);
+
 
     window->setLayout(vlayout);
 
