@@ -27,11 +27,9 @@ void printIt(const QDomElement& element)
 void fillIt(QDomElement& element)
 {
     QString content =
-            "<bookstore>"
             "  <book>"
             "    <Title>MyBookTitle</Title>"
-            "  </book>"
-            "</bookstore>";
+            "  </book>";
 
     QDomDocument doc;
     doc.setContent(content);
