@@ -44,11 +44,15 @@ int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
 
-    QDomElement element;
+    {
+        QDomElement element;
 
-    fillIt(element);
+        fillIt(element);
 
-    printIt(element);  // doc no longer exists, but is element still valid here???
+        printIt(element);  // doc no longer exists, but is element still valid here
+                           // because the DOM tree still exists???
+
+    }  // Both doc and element are deleted here, so DOM tree also gets deleted???
 
     return 0;
 }
