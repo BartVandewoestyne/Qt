@@ -15,13 +15,13 @@
 #include <QTextStream>
 
 
-void printIt(const QDomElement& element)
+QString toString(const QDomElement& element)
 {
     QString s;
     QTextStream str(&s);
     element.save(str, 4);
 
-    qDebug() << s;
+    return s;
 }
 
 void fillIt(QDomElement& element)
@@ -38,7 +38,9 @@ void fillIt(QDomElement& element)
 
     element = doc.documentElement().firstChildElement();
 
-    printIt(element);
+    qDebug() << "\nInside fillIt():";
+    qDebug() << "\n  element is:\n" << toString(element);
+    qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
 
 }  // doc goes out of scope here...
 
@@ -48,9 +50,15 @@ int main(int argc, char* argv[])
 
     QDomElement element;
 
+    qDebug() << "\nBefore fillIt():";
+    qDebug() << "\n  element is:\n" << toString(element);
+    qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
+
     fillIt(element);
 
-    printIt(element);  // doc no longer exists, but is element still valid here???
+    qDebug() << "\nAfter fillIt():";   
+    qDebug() << "\n  element is:\n" << toString(element);  // doc no longer exists, but is element still valid here???
+    qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
 
     return 0;
 }
