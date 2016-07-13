@@ -1,4 +1,6 @@
-# According to [2], this does not work with vcxproj files and msbuild.
+# On Linux, this works with make.
+#
+# On Windows, this works with nmake, but fails with msbuild (see also [2]).
 #
 # References:
 #
@@ -7,7 +9,7 @@
 
 myQmakeTarget.target = someMakefileTargetName
 myQmakeTarget.depends = FORCE
-myQmakeTarget.commands = @echo "Tralalalala"
+myQmakeTarget.commands = @echo "Doing some stuff before compiling the target..."
 QMAKE_EXTRA_TARGETS += myQmakeTarget
 PRE_TARGETDEPS += someMakefileTargetName
 
