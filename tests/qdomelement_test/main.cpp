@@ -36,7 +36,7 @@ void fillIt(QDomElement& element)
     QDomDocument doc;
     doc.setContent(content);
 
-    element = doc.documentElement().firstChildElement();
+    element = doc.documentElement().firstChildElement().firstChildElement();
 
     qDebug() << "\nInside fillIt():";
     qDebug() << "\n  element is:\n" << toString(element);
@@ -48,17 +48,20 @@ int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
 
-    QDomElement element;
+    {
+        QDomElement element;
 
-    qDebug() << "\nBefore fillIt():";
-    qDebug() << "\n  element is:\n" << toString(element);
-    qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
+        qDebug() << "\nBefore fillIt():";
+        qDebug() << "\n  element is:\n" << toString(element);
+        qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
 
-    fillIt(element);
+        fillIt(element);
 
-    qDebug() << "\nAfter fillIt():";   
-    qDebug() << "\n  element is:\n" << toString(element);  // doc no longer exists, but is element still valid here???
-    qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
+        qDebug() << "\nAfter fillIt():";   
+        qDebug() << "\n  element is:\n" << toString(element);  // doc no longer exists, but is element still ok here???
+        qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
+
+    }  // Both doc and element are deleted here, so DOM tree also gets deleted???
 
     return 0;
 }
