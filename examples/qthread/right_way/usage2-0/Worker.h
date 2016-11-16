@@ -13,6 +13,7 @@ private slots:
 
     void onTimeout()
     {
+        // When running the code, you should notice that this slot doens't run in the main thread, which is good.
         qDebug() << "Worker::onTimeout() got called from " << QThread::currentThreadId();
     }
 
