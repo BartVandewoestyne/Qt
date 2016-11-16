@@ -1,0 +1,11 @@
+http://doc.qt.io/qt-4.8/qthread.html#details
+http://doc.qt.io/qt-4.8/threads-starting.html
+
+2013-08-06: http://blog.debao.me/2013/08/how-to-use-qthread-in-the-right-way-part-2/
+2013-08-05: http://blog.debao.me/2013/08/how-to-use-qthread-in-the-right-way-part-1/
+
+2013-01-22: http://woboq.com/blog/qthread-you-were-not-doing-so-wrong.html
+
+2011-11-01: https://mayaposch.wordpress.com/2011/11/01/how-to-really-truly-use-qthreads-the-full-explanation/
+
+2010-06-17: http://blog.qt.io/blog/2010/06/17/youre-doing-it-wrong/
