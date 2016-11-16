@@ -1,4 +1,10 @@
 TEMPLATE = app
+
+CONFIG += console
+
 SOURCES = main.cpp \
+          MyApplication.cpp \
           Worker.cpp
-HEADERS += Worker.h
+
+HEADERS += MyApplication.h \
+           Worker.h
