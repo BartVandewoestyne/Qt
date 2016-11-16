@@ -14,7 +14,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    qDebug()<<"From main thread: "<<QThread::currentThreadId();
+
+    qDebug() << "From main thread: " << QThread::currentThreadId();
+
     QPushButton btn("Stop Thread");
     Thread t;
 
@@ -23,5 +25,6 @@ int main(int argc, char *argv[])
 
     t.start();
     btn.show();
+
     return a.exec();
 }
