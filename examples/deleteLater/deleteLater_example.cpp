@@ -4,6 +4,7 @@
  *   [2] http://blog.qt.io/blog/2012/02/02/qt-commercial-support-weekly-12-to-delete-or-not-to-delete-2/
  *   [3] http://agateau.com/2010/fun-with-event-loops-and-qobjectdeletelater/
  *   [4] https://forum.qt.io/topic/13838/solved-deletelater
+ *   [5] http://stackoverflow.com/questions/21648598/how-deletelater-actually-works-in-qt
  */
 
 #include "Car.h"
