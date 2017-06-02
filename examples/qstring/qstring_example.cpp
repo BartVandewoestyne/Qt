@@ -24,4 +24,9 @@ int main()
   qDebug() << QString("%1 %2 %3").arg(QString::number(1),
                                       QString::number(2),
                                       QString::number(3));
+
+  QString str = "  foo bar   foo     ";
+  qDebug() << "original string: |" << str << "|";
+  str = str.trimmed();
+  qDebug() << "after str.trimmed(): |" << str << "|";
 }
