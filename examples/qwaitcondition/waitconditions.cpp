@@ -7,7 +7,11 @@
  * Then, comment in the QWaitCondition code, and see how we now consequently
  * have a 'Hello' followed by a 'Bart'.
  *
- * TODO: check for correctness!
+ * TODO: check for correctness!  Note for example that the documentation
+ *       for QWaitCondition::wait(QMutex*, unsigned long) mentions that
+ *       the mutex must be initially locked by the calling thread.  According
+ *       to http://doc.qt.io/qt-4.8/qmutex.html#details the mutex is created
+ *       in an unlocked state...
  */
 
 #include <QCoreApplication>
