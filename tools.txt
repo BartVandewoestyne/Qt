@@ -1,0 +1,5 @@
+Qt Creator
+  https://www.qt.io/ide/
+
+Qt Visual Studio Tools
+  http://doc.qt.io/qtvstools/
