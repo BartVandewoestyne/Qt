@@ -12,6 +12,20 @@ int main()
   qDebug() << QString("abc").isNull();
   qDebug() << QString("abc").isEmpty();
 
+  QString name("Bart");
+  name.clear();
+  qDebug() << name.isNull();
+  qDebug() << name.isEmpty();
+  name.clear();
+  qDebug() << "After clearing:";
+  qDebug() << name.isNull();
+  qDebug() << name.isEmpty();
+
+  const auto defaultConstructedQString = QString();
+  qDebug() << "After default construction:";
+  qDebug() << defaultConstructedQString.isNull();
+  qDebug() << defaultConstructedQString.isEmpty();
+
   // To create a null QString, you can just default initialize it.
   QString theNullString;
   qDebug() << "theNullString.isNull() = " << theNullString.isNull();
