@@ -44,5 +44,19 @@ int main(int argc, char *argv[])
     qDebug() << toString(firstChildTwo);
     qDebug() << toString(firstChildThree);
 
+    const auto one = doc.firstChildElement("one");
+    const auto two = doc.firstChildElement("one").firstChildElement("two");
+    const auto three = doc.firstChildElement("one").firstChildElement("two").firstChildElement("three");
+
+    qDebug() << toString(one);
+    qDebug() << toString(two);
+    qDebug() << toString(three);
+
+    const auto defaultConstructedDoc = QDomDocument();
+    qDebug() << defaultConstructedDoc.isNull();
+    
+    doc.clear();
+    qDebug() << doc.isNull();
+
     return a.exec();
 }
