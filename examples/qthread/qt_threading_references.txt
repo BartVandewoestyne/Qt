@@ -1,0 +1,21 @@
+[qtdoc]
+  http://doc.qt.io/qt-4.8/qthread.html#details
+  http://doc.qt.io/qt-4.8/threads-starting.html
+
+[20161208dangelo] Multithreading with Qt
+  https://www.kdab.com/multithreading-with-qt/
+
+[20130806debao] How to use QThread in the right way (Part 2)
+  http://blog.debao.me/2013/08/how-to-use-qthread-in-the-right-way-part-2/
+
+[20130805debao] How to use QThread in the right way (Part 1)
+  http://blog.debao.me/2013/08/how-to-use-qthread-in-the-right-way-part-1/
+
+[20130122goffart] QThread: You were not doing so wrong.
+  http://woboq.com/blog/qthread-you-were-not-doing-so-wrong.html
+
+[20111101posch] How To Really, Truly Use QThreads; The Full Explanation
+  https://mayaposch.wordpress.com/2011/11/01/how-to-really-truly-use-qthreads-the-full-explanation/
+
+[20100617hughes] You’re doing it wrong...
+  http://blog.qt.io/blog/2010/06/17/youre-doing-it-wrong/
