@@ -14,6 +14,7 @@
 #include <QString>
 #include <QTextStream>
 
+#include <cassert>
 
 QString toString(const QDomElement& element)
 {
@@ -44,6 +45,14 @@ void fillIt(QDomElement& element)
 
 }  // doc goes out of scope here...
 
+QDomElement createIt()
+{
+    QDomDocument doc;
+    const auto success = doc.setContent(QString("<Foo/>"));
+	assert(success);
+    return doc.documentElement();
+}
+
 int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
@@ -63,5 +72,13 @@ int main(int argc, char* argv[])
 
     }  // Both doc and element are deleted here, so DOM tree also gets deleted???
 
+	{
+		auto element = createIt();
+		element.setAttribute("someValue", 5);
+		qDebug() << "\nAfter createIt():";
+		qDebug() << "\n  element is:\n" << toString(element);
+		qDebug() << "\n  element.ownerDocument().isNull() is " << element.ownerDocument().isNull();
+		qDebug() << "\n  element.ownerDocument().toString(4) is:\n" << element.ownerDocument().toString(4);
+	}
     return 0;
 }
