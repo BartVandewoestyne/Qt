@@ -49,7 +49,7 @@ QDomElement createIt()
 {
     QDomDocument doc;
     const auto success = doc.setContent(QString("<Foo/>"));
-	assert(success);
+    assert(success);
     return doc.documentElement();
 }
 
