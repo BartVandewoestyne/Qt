@@ -37,4 +37,13 @@ int main()
 		//baStream << static_cast<quint8>(0x88);
 		qDebug() << ba.toHex();
 	}
+
+    {
+        qDebug() << "Printing a QByteArray with newlines and tabs";
+        QByteArray ba("Test\n");
+        qDebug() << QString(ba);
+        qDebug() << QString(ba.data());
+        qDebug() << QString(ba.toHex());
+        qDebug() << QString(ba.toPercentEncoding());
+    }
 }
