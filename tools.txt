@@ -6,5 +6,6 @@ Qt Visual Studio Tools
 
 clazy (for Qt)
   https://github.com/KDE/clazy
+  https://www.kdab.com/clazy-1-4-released/
   https://www.kdab.com/clazy-1-2-released/
   https://www.kdab.com/uncovering-32-qt-best-practices-compile-time-clazy/
