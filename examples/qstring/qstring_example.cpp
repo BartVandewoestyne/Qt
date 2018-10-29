@@ -43,4 +43,17 @@ int main()
   qDebug() << "original string: |" << str << "|";
   str = str.trimmed();
   qDebug() << "after str.trimmed(): |" << str << "|";
+
+  QString str1 = "0014";
+  bool ok1;
+  short hex1 = str1.toShort(&ok1, 16);
+  
+  QString str2 = "FFFE";
+  bool ok2;
+  short hex2 = static_cast<short>(str2.toUShort(&ok2, 16));
+
+  const QByteArray ba = QByteArray::fromHex("21890100000a");
+  const QByteArray prettyba = QByteArray(ba).replace("\n", "\\n").replace("\r", "\\r").replace('\0', "\\0");
+  qDebug() << QString("%1").arg(ba.constData());
+  qDebug() << QString("%1").arg(prettyba.constData());
 }
