@@ -1,10 +1,20 @@
 /*
  * References:
+ *
  *   [1] http://doc.qt.io/qt-4.8/qobject.html#deleteLater
- *   [2] http://blog.qt.io/blog/2012/02/02/qt-commercial-support-weekly-12-to-delete-or-not-to-delete-2/
- *   [3] http://agateau.com/2010/fun-with-event-loops-and-qobjectdeletelater/
- *   [4] https://forum.qt.io/topic/13838/solved-deletelater
- *   [5] http://stackoverflow.com/questions/21648598/how-deletelater-actually-works-in-qt
+ *
+ *   [cen2014] How deleteLater() actually works in qt?
+ *     http://stackoverflow.com/questions/21648598/how-deletelater-actually-works-in-qt
+ *
+ *   [tharez20120207] deleteLater()?
+ *     https://forum.qt.io/topic/13838/solved-deletelater
+ *
+ *   [shaw20120202] To delete or not to delete
+ *     http://blog.qt.io/blog/2012/02/02/qt-commercial-support-weekly-12-to-delete-or-not-to-delete-2/
+ *
+ *   [gateau20100929] Fun with event loops and QObject::deleteLater()
+ *     http://agateau.com/2010/fun-with-event-loops-and-qobjectdeletelater/
+ *
  */
 
 #include "Car.h"
