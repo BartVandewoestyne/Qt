@@ -10,7 +10,8 @@
 QString toString(const QDomNode& node)
 {
     QString str;
-    node.save(QTextStream(&str), 4);
+    QTextStream textStream(&str);
+    node.save(textStream, 4);
     
     // Remove trailing whitespace and newlines.
     while (str.endsWith(' ')) str.chop(1);
@@ -84,6 +85,17 @@ int main(int argc, char *argv[])
     qDebug() << "Default constructed QDomDocument (isNull() test):";
     const auto defaultConstructedDoc = QDomDocument();
     qDebug() << defaultConstructedDoc.isNull();
+
+
+    // TODO: check if this code is the right way to get rid of the warning
+    //   C26444 Avoid unnamed objects with custom construction and destruction (es.84).
+    auto fooElement = doc.createElement("Foo");
+    fooElement = doc.appendChild(fooElement).toElement();
+    if (fooElement.isNull())
+    {
+        // handle error
+    }
+    // do stuff with fooElement
 
     return a.exec();
 }
