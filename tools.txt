@@ -14,3 +14,7 @@ clazy (for Qt)
   https://www.kdab.com/clazy-1-4-released/
   https://www.kdab.com/clazy-1-2-released/
   https://www.kdab.com/uncovering-32-qt-best-practices-compile-time-clazy/
+
+GammaRay
+  https://github.com/KDAB/GammaRay/
+  https://www.kdab.com/gammaray
