@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 
     // TODO: check if this code is the right way to get rid of the warning
     //   C26444 Avoid unnamed objects with custom construction and destruction (es.84).
-    auto fooElement = doc.createElement("Foo");
+    const auto fooElement = doc.createElement("Foo");
     fooElement = doc.appendChild(fooElement).toElement();
     if (fooElement.isNull())
     {
