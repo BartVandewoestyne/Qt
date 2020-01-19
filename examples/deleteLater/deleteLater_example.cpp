@@ -1,9 +1,38 @@
 /*
+ * Forum explanation 1:
+ *
+ *  "deleteLater() posts an event to the event queue (like a repaint event, a
+ *   timer event or a network event). If the event is processed it deletes the
+ *   object."
+ *
+ * Forum explanation 2:
+ *
+ *  "delete removes an object right at the time you call it. deleteLater calls
+ *  delete on an object after all the events currently pending in the event
+ *  loop are handled.
+ *
+ *  Imagine some object A reacting to some event in Qt (let's say a mouse click). A
+ *  calls B::someMethod() which contains 'delete A;'. This code will crash: After
+ *  B::someMethod() returns, code in object A will be executed.
+ *
+ *  'deleteLater(A);' on the other hand is save: A is still around after
+ *  B::someMethod() returns. Only after the execution of the original mouse click
+ *  is done and the Qt eventloop is executing again (== there is nothing to do) Qt
+ *  will delete A."
+ *
  * References:
  *
- *   [1] http://doc.qt.io/qt-4.8/qobject.html#deleteLater
+ *   [qtdocs] Qt 4.8 and Qt 5 documentation for QObject::deleteLater
+ *     http://doc.qt.io/qt-4.8/qobject.html#deleteLater
+ *     https://doc.qt.io/qt-5/qobject.html#deleteLater
  *
- *   [cen2014] How deleteLater() actually works in qt?
+ *   [qt_wiki] Threads Events QObjects
+ *     https://wiki.qt.io/Threads_Events_QObjects
+ *
+ *   [stackoverflow20140313] When to use deleteLater?
+ *     https://stackoverflow.com/questions/22376298/when-to-use-deletelater
+ *
+ *   [stackoverflow20140208] How deleteLater() actually works in qt?
  *     http://stackoverflow.com/questions/21648598/how-deletelater-actually-works-in-qt
  *
  *   [tharez20120207] deleteLater()?
@@ -11,6 +40,9 @@
  *
  *   [shaw20120202] To delete or not to delete
  *     http://blog.qt.io/blog/2012/02/02/qt-commercial-support-weekly-12-to-delete-or-not-to-delete-2/
+ *
+ *   [stackoverflow20110203] How delete and deleteLater works with regards to signals and slots in Qt?
+ *     https://stackoverflow.com/questions/4888189/how-delete-and-deletelater-works-with-regards-to-signals-and-slots-in-qt
  *
  *   [gateau20100929] Fun with event loops and QObject::deleteLater()
  *     http://agateau.com/2010/fun-with-event-loops-and-qobjectdeletelater/
