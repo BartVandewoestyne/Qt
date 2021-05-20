@@ -2,6 +2,9 @@
   http://doc.qt.io/qt-4.8/qthread.html#details
   http://doc.qt.io/qt-4.8/threads-starting.html
 
+[20200107] The Eight Rules of Multithreaded Qt
+  https://www.kdab.com/the-eight-rules-of-multithreaded-qt/
+
 [20161208dangelo] Multithreading with Qt
   https://www.kdab.com/multithreading-with-qt/
 
@@ -17,5 +20,5 @@
 [20111101posch] How To Really, Truly Use QThreads; The Full Explanation
   https://mayaposch.wordpress.com/2011/11/01/how-to-really-truly-use-qthreads-the-full-explanation/
 
-[20100617hughes] You’re doing it wrong...
+[20100617hughes] You're doing it wrong...
   http://blog.qt.io/blog/2010/06/17/youre-doing-it-wrong/
