@@ -16,6 +16,9 @@
  *     from multiple threads, even if all the threads use the *same* instance
  *     of the class.
  *
+ *   - QObject and all of its subclasses are not thread-safe, see
+ *     https://doc.qt.io/qt-5/threads-qobject.html
+ *
  * References:
  *
  *   [qt5doc] Reentrancy and Thread-Safety
