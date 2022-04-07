@@ -56,4 +56,14 @@ int main()
   const QByteArray prettyba = QByteArray(ba).replace("\n", "\\n").replace("\r", "\\r").replace('\0', "\\0");
   qDebug() << QString("%1").arg(ba.constData());
   qDebug() << QString("%1").arg(prettyba.constData());
+
+  const auto nbDecimals = 3;
+  const auto value = 1.234;
+  QString toFillBad;
+  toFillBad.sprintf("%.*f ", nbDecimals, value);
+  const auto toFillGood1 = QString::number(value, 'f', nbDecimals) + " ";
+  const auto toFillGood2 = QString("%1 ").arg(value, 0, 'f', nbDecimals);
+  qDebug() << "toFillBad   = " << toFillBad;
+  qDebug() << "toFillGood1 = " << toFillGood1;
+  qDebug() << "toFillGood2 = " << toFillGood2;
 }
